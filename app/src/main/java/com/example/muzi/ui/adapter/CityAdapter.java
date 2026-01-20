@@ -1,22 +1,27 @@
 package com.example.muzi.ui.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.muzi.R;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder> {
 
     private List<String> cities;
-    private List<String> counts;
+    private List<String> imagePaths;
 
-    public CityAdapter(List<String> cities, List<String> counts) {
+    public CityAdapter(List<String> cities, List<String> imagePaths) {
         this.cities = cities;
-        this.counts = counts;
+        this.imagePaths = imagePaths;
     }
 
     @NonNull
@@ -30,7 +35,16 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
     @Override
     public void onBindViewHolder(@NonNull CityViewHolder holder, int position) {
         holder.tvName.setText(cities.get(position));
-        holder.tvCount.setText(counts.get(position));
+        
+        if (imagePaths != null && position < imagePaths.size()) {
+            try {
+                InputStream is = holder.itemView.getContext().getAssets().open(imagePaths.get(position));
+                Bitmap bitmap = BitmapFactory.decodeStream(is);
+                holder.ivImage.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -39,12 +53,13 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
     }
 
     static class CityViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvCount;
+        TextView tvName;
+        ImageView ivImage;
 
         public CityViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvCityName);
-            tvCount = itemView.findViewById(R.id.tvCount);
+            ivImage = itemView.findViewById(R.id.imgCity);
         }
     }
 }

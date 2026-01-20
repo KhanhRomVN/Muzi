@@ -22,21 +22,14 @@
             </intent-filter>
         </activity>
 
+        <!-- Home -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
 
-        <!-- Auth -->
-        <activity android:name=".auth.AuthActivity" 
-                  android:exported="false"/>
-        <activity android:name=".auth.LoginActivity" />
-        <activity android:name=".auth.RegisterActivity" />
-
-        <!-- Home -->
-        <activity android:name=".home.HomeActivity" />
-
         <!-- Hotel -->
         <activity android:name=".hotel.HotelDetailActivity" />
+        <activity android:name=".hotel.BookingActivity" />
 
         <!-- Booking -->
         <activity android:name=".booking.BookingListActivity" />

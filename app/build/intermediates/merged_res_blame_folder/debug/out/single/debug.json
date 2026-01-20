@@ -4,8 +4,16 @@
         "source": "com.example.muzi.app-main-33:/layout/activity_main.xml"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/color_nav_item_color.xml.flat",
+        "source": "com.example.muzi.app-main-33:/color/nav_item_color.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xhdpi_ic_launcher.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_item_room.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/item_room.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -20,6 +28,10 @@
         "source": "com.example.muzi.app-main-33:/layout/fragment_management.xml"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_item_hotel_suggestion.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/item_hotel_suggestion.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-xhdpi/ic_launcher_round.png"
     },
@@ -30,6 +42,10 @@
     {
         "merged": "com.example.muzi.app-merged_res-31:/layout_fragment_settings.xml.flat",
         "source": "com.example.muzi.app-main-33:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_booking.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_booking.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-mdpi_ic_launcher_round.png.flat",
@@ -60,6 +76,10 @@
         "source": "com.example.muzi.app-main-33:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_settings.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_settings.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
@@ -84,6 +104,10 @@
         "source": "com.example.muzi.app-main-33:/layout/item_city_card.xml"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_item_photo.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/item_photo.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/xml_data_extraction_rules.xml.flat",
         "source": "com.example.muzi.app-main-33:/xml/data_extraction_rules.xml"
     },
@@ -96,8 +120,16 @@
         "source": "com.example.muzi.app-main-33:/layout/activity_booking_list.xml"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_manager.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_manager.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_calendar.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_calendar.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -120,6 +152,10 @@
         "source": "com.example.muzi.app-main-33:/layout/activity_auth.xml"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_home.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_home.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/layout_activity_manage_room.xml.flat",
         "source": "com.example.muzi.app-main-33:/layout/activity_manage_room.xml"
     },
@@ -130,6 +166,10 @@
     {
         "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_bath.xml.flat",
         "source": "com.example.muzi.app-main-33:/drawable/ic_bath.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_nav_shadow.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/nav_shadow.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/layout_item_hotel_card.xml.flat",

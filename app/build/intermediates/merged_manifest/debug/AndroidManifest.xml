@@ -36,22 +36,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Home -->
         <activity
             android:name="com.example.muzi.MainActivity"
             android:exported="false" />
 
-        <!-- Auth -->
-        <activity
-            android:name="com.example.muzi.auth.AuthActivity"
-            android:exported="false" />
-        <activity android:name="com.example.muzi.auth.LoginActivity" />
-        <activity android:name="com.example.muzi.auth.RegisterActivity" />
-
-        <!-- Home -->
-        <activity android:name="com.example.muzi.home.HomeActivity" />
-
         <!-- Hotel -->
         <activity android:name="com.example.muzi.hotel.HotelDetailActivity" />
+        <activity android:name="com.example.muzi.hotel.BookingActivity" />
 
         <!-- Booking -->
         <activity android:name="com.example.muzi.booking.BookingListActivity" />

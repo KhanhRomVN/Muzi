@@ -4,14 +4,29 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.muzi.R;
+import com.example.muzi.data.model.Room;
+import com.example.muzi.ui.adapter.PhotoAdapter;
+import com.example.muzi.ui.adapter.RoomAdapter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HotelDetailActivity extends AppCompatActivity {
+
+    private TextView tvTotalPrice;
+    private Button btnBookNow;
+    private View cardBooking;
+    private Room selectedRoom;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +36,14 @@ public class HotelDetailActivity extends AppCompatActivity {
         TextView tvDetailName = findViewById(R.id.tvDetailName);
         TextView tvDetailAddress = findViewById(R.id.tvDetailAddress);
         TextView tvDetailDescription = findViewById(R.id.tvDetailDescription);
+        TextView tvDetailRating = findViewById(R.id.tvDetailRating);
+        TextView tvDetailAmenities = findViewById(R.id.tvDetailAmenities);
+        tvTotalPrice = findViewById(R.id.tvTotalPrice);
+        btnBookNow = findViewById(R.id.btnBookNow);
+        cardBooking = findViewById(R.id.cardBooking);
+
+        // Initially hide/disable or set to 0
+        cardBooking.setVisibility(View.GONE);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -28,10 +51,14 @@ public class HotelDetailActivity extends AppCompatActivity {
             String address = intent.getStringExtra("hotel_address");
             String description = intent.getStringExtra("hotel_description");
             String imagePath = intent.getStringExtra("hotel_image");
+            float rating = intent.getFloatExtra("hotel_rating", 4.5f);
+            String amenities = intent.getStringExtra("hotel_amenities");
 
             tvDetailName.setText(name);
             tvDetailAddress.setText(address);
             tvDetailDescription.setText(description);
+            tvDetailRating.setText("★ " + rating);
+            tvDetailAmenities.setText(amenities);
 
             if (imagePath != null) {
                 try {
@@ -43,5 +70,40 @@ public class HotelDetailActivity extends AppCompatActivity {
                 }
             }
         }
+
+        // Photo Gallery
+        RecyclerView rvGallery = findViewById(R.id.rvPhotoGallery);
+        rvGallery.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        List<String> photos = new ArrayList<>();
+        photos.add("hotels/hotel1.png");
+        photos.add("hotels/hotel2.png");
+        photos.add("hotels/hotel3.png");
+        rvGallery.setAdapter(new PhotoAdapter(photos));
+
+        // Room Selection
+        RecyclerView rvRooms = findViewById(R.id.rvRoomSelection);
+        rvRooms.setLayoutManager(new LinearLayoutManager(this));
+        List<Room> rooms = new ArrayList<>();
+        rooms.add(new Room("r1", "h1", "101", "Phòng Deluxe Cao Cấp", 2500000.0));
+        rooms.add(new Room("r2", "h1", "102", "Phòng Suite Sang Trọng", 4000000.0));
+        rooms.add(new Room("r3", "h1", "103", "Phòng Đôi Tiêu Chuẩn", 1800000.0));
+        
+        RoomAdapter roomAdapter = new RoomAdapter(rooms, room -> {
+            selectedRoom = room;
+            tvTotalPrice.setText(String.format("%,.0f", room.getPrice()).replace(',', '.') + " VNĐ");
+            cardBooking.setVisibility(View.VISIBLE);
+        });
+        rvRooms.setAdapter(roomAdapter);
+
+        btnBookNow.setOnClickListener(v -> {
+            if (selectedRoom != null) {
+                // Navigate to Booking Activity
+                Intent bookingIntent = new Intent(this, BookingActivity.class);
+                bookingIntent.putExtra("hotel_name", tvDetailName.getText().toString());
+                bookingIntent.putExtra("room_type", selectedRoom.getType());
+                bookingIntent.putExtra("total_price", selectedRoom.getPrice());
+                startActivity(bookingIntent);
+            }
+        });
     }
 }

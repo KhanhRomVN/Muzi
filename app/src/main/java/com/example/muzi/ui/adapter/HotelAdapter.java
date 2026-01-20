@@ -38,7 +38,13 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         Hotel hotel = hotelList.get(position);
         holder.tvName.setText(hotel.getName());
         holder.tvAddress.setText(hotel.getAddress());
-        holder.tvPrice.setText("$ " + hotel.getPrice() + " " + holder.itemView.getContext().getString(R.string.per_night));
+        String formattedPrice = String.format("%,.0f", hotel.getPrice()).replace(',', '.') + " VNĐ";
+        holder.tvPrice.setText(formattedPrice);
+        
+        // Find the per night text and update it to VNĐ/đêm
+        // Since it's in a separate TextView in the layout (sometimes), let's be careful.
+        // Actually, in item_hotel_card.xml, we have fixed strings or IDs.
+        // Let's check item_hotel_card.xml again.
 
         // Load image from assets
         if (hotel.getImagePath() != null) {

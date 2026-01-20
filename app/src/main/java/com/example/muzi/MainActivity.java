@@ -17,9 +17,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setItemActiveIndicatorEnabled(false);
         
-        // Default fragment
-        loadFragment(new HomeFragment());
+        // Handle tab selection from Intent
+        int tabToSelect = getIntent().getIntExtra("select_tab", R.id.nav_home);
+        bottomNav.setSelectedItemId(tabToSelect);
+        
+        if (tabToSelect == R.id.nav_home) {
+            loadFragment(new HomeFragment());
+        } else if (tabToSelect == R.id.nav_management) {
+            loadFragment(new ManagementFragment());
+        } else if (tabToSelect == R.id.nav_booking) {
+            loadFragment(new BookingFragment());
+        } else if (tabToSelect == R.id.nav_settings) {
+            loadFragment(new SettingsFragment());
+        }
 
         bottomNav.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();

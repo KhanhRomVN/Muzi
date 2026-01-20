@@ -1403,9 +1403,14 @@
     <dimen name="m3_menu_elevation">@dimen/m3_comp_menu_container_elevation</dimen>
     <dimen name="m3_nav_badge_with_text_vertical_offset">14dp</dimen>
     <dimen name="m3_navigation_drawer_layout_corner_size">16dp</dimen>
+    <dimen name="m3_navigation_item_active_indicator_height" ns1:override="true">0dp</dimen>
     <dimen name="m3_navigation_item_active_indicator_label_padding">4dp</dimen>
+    <dimen name="m3_navigation_item_active_indicator_margin_top" ns1:override="true">0dp</dimen>
+    <dimen name="m3_navigation_item_active_indicator_width" ns1:override="true">0dp</dimen>
     <dimen name="m3_navigation_item_horizontal_padding">28dp</dimen>
     <dimen name="m3_navigation_item_icon_padding">12dp</dimen>
+    <dimen name="m3_navigation_item_label_padding_bottom" ns1:override="true">2dp</dimen>
+    <dimen name="m3_navigation_item_label_padding_top" ns1:override="true">2dp</dimen>
     <dimen name="m3_navigation_item_shape_inset_bottom">0dp</dimen>
     <dimen name="m3_navigation_item_shape_inset_end">12dp</dimen>
     <dimen name="m3_navigation_item_shape_inset_start">12dp</dimen>
@@ -2107,7 +2112,7 @@
     <string name="nav_home">Khám phá</string>
     <string name="nav_management">Quản lý</string>
     <string name="nav_settings">Cài đặt</string>
-    <string name="nearby">Địa điểm gần bạn</string>
+    <string name="nearby_hotels">Khách sạn gần bạn</string>
     <string name="no_account">Chưa có tài khoản? Đăng ký ngay</string>
     <string name="password">Mật khẩu</string>
     <string name="password_toggle_content_description">Show password</string>
@@ -2116,8 +2121,10 @@
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="per_night">/ đêm</string>
+    <string name="region_hotels">Khách sạn theo khu vực</string>
     <string name="register">Đăng ký</string>
     <string name="repeat_password">Nhập lại mật khẩu</string>
+    <string name="search_hint">Tìm khách sạn...</string>
     <string name="search_menu_title">Search</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior
@@ -2128,7 +2135,9 @@
     <string description="Title of the side sheet&apos;s accessibility pane that is spoken by TalkBack when the side sheet appears on screen. [CHAR_LIMIT=NONE]" name="side_sheet_accessibility_pane_title">Side Sheet</string>
     <string name="side_sheet_behavior" translatable="false">com.google.android.material.sidesheet.SideSheetBehavior</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="suggestion_hotels">Gợi ý cho bạn</string>
     <string name="welcome">Chào mừng</string>
+    <string name="welcome_back">Chào mừng trở lại!</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -5539,6 +5548,18 @@
     <item name="shapeAppearanceOverlay">@null</item>
   </style>
     <style name="Base.Widget.MaterialComponents.TextView" parent="Widget.AppCompat.TextView"/>
+    <style name="BottomNavLabelActiveStyle" parent="BottomNavLabelStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="BottomNavLabelStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+    <style name="BottomNavThemeOverlay">
+        <item name="colorSecondaryContainer">@android:color/transparent</item>
+        <item name="colorOnSecondaryContainer">@color/primary</item>
+    </style>
     <style name="CardView" parent="Base.CardView">
     </style>
     <style name="CardView.Dark">

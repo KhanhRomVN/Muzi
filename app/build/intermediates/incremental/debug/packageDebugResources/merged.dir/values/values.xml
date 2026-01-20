@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:ns1="http://schemas.android.com/tools">
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">#6200EE</color>
     <color name="on_primary">#FFFFFF</color>
@@ -8,6 +8,11 @@
     <color name="secondary">#f6f8fc</color>
     <color name="text_primary">#000000</color>
     <color name="white">#FFFFFFFF</color>
+    <dimen name="m3_navigation_item_active_indicator_height" ns1:override="true">0dp</dimen>
+    <dimen name="m3_navigation_item_active_indicator_margin_top" ns1:override="true">0dp</dimen>
+    <dimen name="m3_navigation_item_active_indicator_width" ns1:override="true">0dp</dimen>
+    <dimen name="m3_navigation_item_label_padding_bottom" ns1:override="true">2dp</dimen>
+    <dimen name="m3_navigation_item_label_padding_top" ns1:override="true">2dp</dimen>
     <string name="app_name">Muzi</string>
     <string name="email">Email</string>
     <string name="explore_title">Khám phá\nkhách sạn tốt nhất</string>
@@ -18,14 +23,18 @@
     <string name="nav_home">Khám phá</string>
     <string name="nav_management">Quản lý</string>
     <string name="nav_settings">Cài đặt</string>
-    <string name="nearby">Địa điểm gần bạn</string>
+    <string name="nearby_hotels">Khách sạn gần bạn</string>
     <string name="no_account">Chưa có tài khoản? Đăng ký ngay</string>
     <string name="password">Mật khẩu</string>
     <string name="per_night">/ đêm</string>
+    <string name="region_hotels">Khách sạn theo khu vực</string>
     <string name="register">Đăng ký</string>
     <string name="repeat_password">Nhập lại mật khẩu</string>
+    <string name="search_hint">Tìm khách sạn...</string>
     <string name="see_all">Xem tất cả</string>
+    <string name="suggestion_hotels">Gợi ý cho bạn</string>
     <string name="welcome">Chào mừng</string>
+    <string name="welcome_back">Chào mừng trở lại!</string>
     <style name="Base.Theme.Muzi" parent="Theme.Material3.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/primary</item>
@@ -38,6 +47,18 @@
         
         <item name="android:windowBackground">@color/secondary</item>
         <item name="android:textColorPrimary">@color/text_primary</item>
+    </style>
+    <style name="BottomNavLabelActiveStyle" parent="BottomNavLabelStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="BottomNavLabelStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+    <style name="BottomNavThemeOverlay">
+        <item name="colorSecondaryContainer">@android:color/transparent</item>
+        <item name="colorOnSecondaryContainer">@color/primary</item>
     </style>
     <style name="Theme.Muzi" parent="Base.Theme.Muzi"/>
 </resources>

@@ -8,10 +8,12 @@ public class Hotel {
     private String ownerId;
     private String imagePath;
     private double price;
+    private float rating;
+    private String amenities;
 
     public Hotel() {}
 
-    public Hotel(String id, String name, String address, String description, String ownerId, String imagePath, double price) {
+    public Hotel(String id, String name, String address, String description, String ownerId, String imagePath, double price, float rating, String amenities) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -19,6 +21,8 @@ public class Hotel {
         this.ownerId = ownerId;
         this.imagePath = imagePath;
         this.price = price;
+        this.rating = rating;
+        this.amenities = amenities;
     }
 
     public String getId() { return id; }
@@ -35,4 +39,8 @@ public class Hotel {
     public void setImagePath(String imagePath) { this.imagePath = imagePath; }
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
+    public float getRating() { return rating; }
+    public void setRating(float rating) { this.rating = rating; }
+    public String getAmenities() { return amenities; }
+    public void setAmenities(String amenities) { this.amenities = amenities; }
 }

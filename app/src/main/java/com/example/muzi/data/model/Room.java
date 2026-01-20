@@ -6,6 +6,7 @@ public class Room {
     private String roomNumber;
     private String type; // "SINGLE", "DOUBLE", "SUITE"
     private double price;
+    private boolean isSelected;
 
     public Room() {}
 
@@ -15,6 +16,7 @@ public class Room {
         this.roomNumber = roomNumber;
         this.type = type;
         this.price = price;
+        this.isSelected = false;
     }
 
     public String getId() { return id; }
@@ -27,4 +29,6 @@ public class Room {
     public void setType(String type) { this.type = type; }
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
+    public boolean isSelected() { return isSelected; }
+    public void setSelected(boolean selected) { isSelected = selected; }
 }

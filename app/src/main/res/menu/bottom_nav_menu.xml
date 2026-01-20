@@ -2,21 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:title="@string/nav_home"
-        android:icon="@android:drawable/ic_menu_compass" />
-        
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_home" />
     <item
         android:id="@+id/nav_management"
-        android:title="@string/nav_management"
-        android:icon="@android:drawable/ic_menu_my_calendar" />
-
+        android:icon="@drawable/ic_manager"
+        android:title="@string/nav_management" />
     <item
         android:id="@+id/nav_booking"
-        android:title="@string/nav_booking"
-        android:icon="@android:drawable/ic_menu_agenda" />
-
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/nav_booking" />
     <item
         android:id="@+id/nav_settings"
-        android:title="@string/nav_settings"
-        android:icon="@android:drawable/ic_menu_preferences" />
+        android:icon="@drawable/ic_settings"
+        android:title="@string/nav_settings" />
 </menu>
