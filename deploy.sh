@@ -14,7 +14,7 @@ MAIN_ACTIVITY=".MainActivity"
 
 # 1. Build the APK
 echo -e "\n${GREEN}📦 Building APK...${NC}"
-./gradlew assembleDebug
+./gradlew clean assembleDebug
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}❌ Build Failed! Fix errors and try again.${NC}"

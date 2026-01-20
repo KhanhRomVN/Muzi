@@ -27,14 +27,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Muzi" >
         <activity
-            android:name="com.example.muzi.MainActivity"
-            android:exported="true" >
+            android:name="com.example.muzi.ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.muzi.MainActivity"
+            android:exported="false" />
+
+        <!-- Auth -->
+        <activity
+            android:name="com.example.muzi.auth.AuthActivity"
+            android:exported="false" />
+        <activity android:name="com.example.muzi.auth.LoginActivity" />
+        <activity android:name="com.example.muzi.auth.RegisterActivity" />
+
+        <!-- Home -->
+        <activity android:name="com.example.muzi.home.HomeActivity" />
+
+        <!-- Hotel -->
+        <activity android:name="com.example.muzi.hotel.HotelDetailActivity" />
+
+        <!-- Booking -->
+        <activity android:name="com.example.muzi.booking.BookingListActivity" />
+        <activity android:name="com.example.muzi.booking.BookingDetailActivity" />
+
+        <!-- Management -->
+        <activity android:name="com.example.muzi.management.HotelManagementActivity" />
+        <activity android:name="com.example.muzi.management.CreateHotelActivity" />
+        <activity android:name="com.example.muzi.management.ManageRoomActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

@@ -1,15 +1,11 @@
 [
     {
-        "merged": "com.example.muzi.app-merged_res-31:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.muzi.app-main-33:/xml/data_extraction_rules.xml"
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_main.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_main.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xhdpi_ic_launcher.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.example.muzi.app-merged_res-31:/xml_backup_rules.xml.flat",
-        "source": "com.example.muzi.app-main-33:/xml/backup_rules.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -20,24 +16,44 @@
         "source": "com.example.muzi.app-main-33:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "com.example.muzi.app-main-33:/mipmap-xxhdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "com.example.muzi.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.muzi.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.example.muzi.app-merged_res-31:/layout_fragment_management.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/fragment_management.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_bed.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_bed.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_fragment_settings.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/fragment_settings.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-mdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "com.example.muzi.app-main-33:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_splash.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_home.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_booking_detail.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_booking_detail.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_bg_rating_badge.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/bg_rating_badge.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_register.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_register.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxhdpi_ic_launcher.png.flat",
@@ -52,15 +68,83 @@
         "source": "com.example.muzi.app-main-33:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/home/khanhromvn/.gradle/daemon/8.2/com.example.muzi.app-merged_res-31:/layout_activity_main.xml.flat",
-        "source": "/home/khanhromvn/.gradle/daemon/8.2/com.example.muzi.app-main-33:/layout/activity_main.xml"
+        "merged": "com.example.muzi.app-merged_res-31:/layout_fragment_home.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_hotel_detail.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_hotel_detail.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.example.muzi.app-main-33:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_item_city_card.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/item_city_card.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.muzi.app-main-33:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/xml_backup_rules.xml.flat",
+        "source": "com.example.muzi.app-main-33:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_booking_list.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_booking_list.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.example.muzi.app-main-33:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.muzi.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_fragment_booking.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/fragment_booking.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_hotel_management.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_hotel_management.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_login.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_auth.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_auth.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_manage_room.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_manage_room.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.example.muzi.app-main-33:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_bath.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_bath.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/layout_item_hotel_card.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/item_hotel_card.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.example.muzi.app-main-33:/menu/bottom_nav_menu.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-hdpi_ic_launcher.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "com.example.muzi.app-merged_res-31:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "com.example.muzi.app-main-33:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "com.example.muzi.app-merged_res-31:/layout_activity_create_hotel.xml.flat",
+        "source": "com.example.muzi.app-main-33:/layout/activity_create_hotel.xml"
     }
 ]

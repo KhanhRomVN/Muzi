@@ -13,14 +13,39 @@
         android:theme="@style/Theme.Muzi"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- Auth -->
+        <activity android:name=".auth.AuthActivity" 
+                  android:exported="false"/>
+        <activity android:name=".auth.LoginActivity" />
+        <activity android:name=".auth.RegisterActivity" />
+
+        <!-- Home -->
+        <activity android:name=".home.HomeActivity" />
+
+        <!-- Hotel -->
+        <activity android:name=".hotel.HotelDetailActivity" />
+
+        <!-- Booking -->
+        <activity android:name=".booking.BookingListActivity" />
+        <activity android:name=".booking.BookingDetailActivity" />
+
+        <!-- Management -->
+        <activity android:name=".management.HotelManagementActivity" />
+        <activity android:name=".management.CreateHotelActivity" />
+        <activity android:name=".management.ManageRoomActivity" />
     </application>
 
 </manifest>

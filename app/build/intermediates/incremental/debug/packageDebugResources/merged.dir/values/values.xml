@@ -2,12 +2,42 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">#6200EE</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#000000</color>
+    <color name="primary">#075b5f</color>
+    <color name="secondary">#f6f8fc</color>
+    <color name="text_primary">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Muzi</string>
-    <string name="hello_world">Hello World!</string>
+    <string name="email">Email</string>
+    <string name="explore_title">Khám phá\nkhách sạn tốt nhất</string>
+    <string name="have_account">Đã có tài khoản? Đăng nhập</string>
+    <string name="login">Đăng nhập</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="nav_booking">Đặt phòng</string>
+    <string name="nav_home">Khám phá</string>
+    <string name="nav_management">Quản lý</string>
+    <string name="nav_settings">Cài đặt</string>
+    <string name="nearby">Địa điểm gần bạn</string>
+    <string name="no_account">Chưa có tài khoản? Đăng ký ngay</string>
+    <string name="password">Mật khẩu</string>
+    <string name="per_night">/ đêm</string>
+    <string name="register">Đăng ký</string>
+    <string name="repeat_password">Nhập lại mật khẩu</string>
+    <string name="see_all">Xem tất cả</string>
+    <string name="welcome">Chào mừng</string>
     <style name="Base.Theme.Muzi" parent="Theme.Material3.DayNight.NoActionBar">
         
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
         
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+
+        <item name="android:statusBarColor">@color/primary</item>
+        
+        <item name="android:windowBackground">@color/secondary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
     </style>
     <style name="Theme.Muzi" parent="Base.Theme.Muzi"/>
 </resources>
