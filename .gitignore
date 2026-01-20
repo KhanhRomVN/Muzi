@@ -8,8 +8,16 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build
-/captures
+# Ignore build directories in all modules
+build/
+# Captures directory
+captures/
 .externalNativeBuild
 .cxx
-local.properties
+# Package files
+*.apk
+*.ap_
+*.aab
+# Keystore files
+*.jks
+*.keystore
