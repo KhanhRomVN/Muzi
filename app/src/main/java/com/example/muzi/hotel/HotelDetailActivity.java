@@ -38,7 +38,8 @@ public class HotelDetailActivity extends AppCompatActivity {
         TextView tvDetailName = findViewById(R.id.tvDetailName);
         TextView tvDetailAddress = findViewById(R.id.tvDetailAddress);
         TextView tvDetailDescription = findViewById(R.id.tvDetailDescription);
-        TextView tvDetailRating = findViewById(R.id.tvDetailRating);
+        TextView tvDetailRatingCount = findViewById(R.id.tvDetailRatingCount);
+        TextView tvDetailStayInfo = findViewById(R.id.tvDetailStayInfo);
         tvTotalPrice = findViewById(R.id.tvTotalPrice);
         btnBookNow = findViewById(R.id.btnBookNow);
         cardBooking = findViewById(R.id.cardBooking);
@@ -58,7 +59,8 @@ public class HotelDetailActivity extends AppCompatActivity {
             tvDetailName.setText(name);
             tvDetailAddress.setText(address);
             tvDetailDescription.setText(description);
-            tvDetailRating.setText("★ " + rating);
+            tvDetailRatingCount.setText(rating + " (124 đánh giá)");
+            tvDetailStayInfo.setText(amenities != null ? amenities : "4 giường • 2 phòng tắm");
 
             if (imagePath != null) {
                 try {
@@ -84,9 +86,9 @@ public class HotelDetailActivity extends AppCompatActivity {
         RecyclerView rvRooms = findViewById(R.id.rvRoomSelection);
         rvRooms.setLayoutManager(new LinearLayoutManager(this));
         List<Room> rooms = new ArrayList<>();
-        rooms.add(new Room("r1", "h1", "101", "Phòng Deluxe Cao Cấp", 2500000.0, "hotels/hotel1.png"));
-        rooms.add(new Room("r2", "h1", "102", "Phòng Suite Sang Trọng", 4000000.0, "hotels/hotel2.png"));
-        rooms.add(new Room("r3", "h1", "103", "Phòng Đôi Tiêu Chuẩn", 1800000.0, "hotels/hotel3.png"));
+        rooms.add(new Room("r1", "h1", "101", "Phòng Deluxe Cao Cấp", 2500000.0, "hotels/hotel1.png", "1 giường đôi cực lớn"));
+        rooms.add(new Room("r2", "h1", "102", "Phòng Suite Sang Trọng", 4000000.0, "hotels/hotel2.png", "2 giường đôi, 1 sofa giường"));
+        rooms.add(new Room("r3", "h1", "103", "Phòng Đôi Tiêu Chuẩn", 1800000.0, "hotels/hotel3.png", "2 giường đơn"));
         
         RoomAdapter roomAdapter = new RoomAdapter(rooms, room -> {
             selectedRoom = room;
@@ -99,9 +101,9 @@ public class HotelDetailActivity extends AppCompatActivity {
         RecyclerView rvComments = findViewById(R.id.rvComments);
         rvComments.setLayoutManager(new LinearLayoutManager(this));
         List<Comment> commentList = new ArrayList<>();
-        commentList.add(new Comment("c1", "Nguyễn Văn A", "user_avatar.png", 5.0f, "Phòng ốc rất sạch sẽ, nhân viên phục vụ tận tình chu đáo. Sẽ quay lại!", "20/01/2026"));
-        commentList.add(new Comment("c2", "Trần Thị B", "", 4.5f, "Khách sạn có view nhìn ra biển rất đẹp. Đồ ăn sáng ngon và phong phú.", "18/01/2026"));
-        commentList.add(new Comment("c3", "Lê Văn C", "", 4.0f, "Vị trí thuận tiện, gần trung tâm. Tuy nhiên thủ tục check-in hơi chậm một chút.", "15/01/2026"));
+        commentList.add(new Comment("c1", "Nguyễn Văn A", "hotels/1.jpg", 5.0f, "Phòng ốc rất sạch sẽ, nhân viên phục vụ tận tình chu đáo. Sẽ quay lại!", "20/01/2026"));
+        commentList.add(new Comment("c2", "Trần Thị B", "hotels/2.jpg", 4.5f, "Khách sạn có view nhìn ra biển rất đẹp. Đồ ăn sáng ngon và phong phú.", "18/01/2026"));
+        commentList.add(new Comment("c3", "Lê Văn C", "hotels/3.jpg", 4.0f, "Vị trí thuận tiện, gần trung tâm. Tuy nhiên thủ tục check-in hơi chậm một chút.", "15/01/2026"));
         rvComments.setAdapter(new CommentAdapter(commentList));
 
         btnBookNow.setOnClickListener(v -> {
@@ -109,6 +111,8 @@ public class HotelDetailActivity extends AppCompatActivity {
                 // Navigate to Booking Activity
                 Intent bookingIntent = new Intent(this, BookingActivity.class);
                 bookingIntent.putExtra("hotel_name", tvDetailName.getText().toString());
+                bookingIntent.putExtra("hotel_address", tvDetailAddress.getText().toString());
+                bookingIntent.putExtra("hotel_image", getIntent().getStringExtra("hotel_image"));
                 bookingIntent.putExtra("room_type", selectedRoom.getType());
                 bookingIntent.putExtra("total_price", selectedRoom.getPrice());
                 startActivity(bookingIntent);

@@ -27,6 +27,9 @@
             android:name=".MainActivity"
             android:exported="false" />
 
+        <!-- Auth -->
+        <activity android:name=".auth.AuthActivity" />
+
         <!-- Hotel -->
         <activity android:name=".hotel.HotelDetailActivity" />
         <activity android:name=".hotel.BookingActivity" />

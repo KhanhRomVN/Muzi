@@ -52,6 +52,10 @@
         "source": "com.example.muzi.app-main-33:/layout/activity_home.xml"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_wave_header.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_wave_header.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/layout_activity_booking_detail.xml.flat",
         "source": "com.example.muzi.app-main-33:/layout/activity_booking_detail.xml"
     },
@@ -80,6 +84,10 @@
         "source": "com.example.muzi.app-main-33:/layout/item_city_card.xml"
     },
     {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_email.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_email.xml"
+    },
+    {
         "merged": "com.example.muzi.app-merged_res-31:/xml_backup_rules.xml.flat",
         "source": "com.example.muzi.app-main-33:/xml/backup_rules.xml"
     },
@@ -90,6 +98,10 @@
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_star.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_star.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_heater.xml.flat",
@@ -126,6 +138,14 @@
     {
         "merged": "com.example.muzi.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "com.example.muzi.app-main-33:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_arrow_right.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_arrow_right.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_lock.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_lock.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_bed.xml.flat",
@@ -178,6 +198,10 @@
     {
         "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_manager.xml.flat",
         "source": "com.example.muzi.app-main-33:/drawable/ic_manager.xml"
+    },
+    {
+        "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_edit.xml.flat",
+        "source": "com.example.muzi.app-main-33:/drawable/ic_edit.xml"
     },
     {
         "merged": "com.example.muzi.app-merged_res-31:/drawable_ic_calendar.xml.flat",

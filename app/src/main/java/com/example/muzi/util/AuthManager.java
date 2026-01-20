@@ -16,9 +16,35 @@ public class AuthManager {
         this.context = context;
         pref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = pref.edit();
+        
+        // Add default admin account if not exists
+        if (!pref.contains("user_pass_admin@gmail.com")) {
+            editor.putString("user_pass_admin@gmail.com", "admin123");
+            editor.apply();
+        }
     }
 
-    public void setLogin(boolean isLoggedIn, String email) {
+    public boolean register(String email, String password) {
+        if (pref.contains("user_pass_" + email)) {
+            return false; // User already exists
+        }
+        editor.putString("user_pass_" + email, password);
+        // Also save profile info if needed in future
+        editor.commit();
+        login(email, password); // Auto login
+        return true;
+    }
+
+    public boolean login(String email, String password) {
+        String storedPassword = pref.getString("user_pass_" + email, null);
+        if (storedPassword != null && storedPassword.equals(password)) {
+            setLoginSession(true, email);
+            return true;
+        }
+        return false;
+    }
+
+    private void setLoginSession(boolean isLoggedIn, String email) {
         editor.putBoolean(KEY_IS_LOGGED_IN, isLoggedIn);
         editor.putString(KEY_USER_EMAIL, email);
         editor.commit();
@@ -33,7 +59,8 @@ public class AuthManager {
     }
     
     public void logout() {
-        editor.clear();
+        editor.remove(KEY_IS_LOGGED_IN);
+        editor.remove(KEY_USER_EMAIL);
         editor.commit();
     }
 }

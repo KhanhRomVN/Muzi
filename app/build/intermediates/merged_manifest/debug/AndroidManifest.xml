@@ -42,6 +42,9 @@
             android:name="com.example.muzi.MainActivity"
             android:exported="false" />
 
+        <!-- Auth -->
+        <activity android:name="com.example.muzi.auth.AuthActivity" />
+
         <!-- Hotel -->
         <activity android:name="com.example.muzi.hotel.HotelDetailActivity" />
         <activity android:name="com.example.muzi.hotel.BookingActivity" />

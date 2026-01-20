@@ -15,12 +15,20 @@ import com.example.muzi.util.AuthManager;
 
 public class AuthActivity extends AppCompatActivity {
 
+    private android.widget.ImageView ivAuthSlideshow;
+    private android.os.Handler handler = new android.os.Handler(android.os.Looper.getMainLooper());
+    private String[] hotelImages = {"hotel1.png", "hotel2.png", "hotel3.png"};
+    private int currentImageIndex = 0;
+
     private EditText etEmail, etPassword, etRepeatPassword;
+    private android.widget.CheckBox cbRememberMe;
+    private TextView tvForgotPassword, tvRepeatPasswordLabel, tvAuthTitle;
+    private com.google.android.material.textfield.TextInputLayout tilRepeatPassword;
     private Button btnAction;
     private TextView tvSwitch;
     private boolean isLoginMode = true;
     private AuthManager authManager;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +36,20 @@ public class AuthActivity extends AppCompatActivity {
 
         authManager = new AuthManager(this);
 
+        ivAuthSlideshow = findViewById(R.id.ivAuthSlideshow);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         etRepeatPassword = findViewById(R.id.etRepeatPassword);
+        tilRepeatPassword = findViewById(R.id.tilRepeatPassword);
+        tvRepeatPasswordLabel = findViewById(R.id.tvRepeatPasswordLabel);
+        cbRememberMe = findViewById(R.id.cbRememberMe);
+        tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        tvAuthTitle = findViewById(R.id.tvAuthTitle);
         btnAction = findViewById(R.id.btnAction);
         tvSwitch = findViewById(R.id.tvSwitch);
+
+        // Start Slideshow
+        startSlideshow();
 
         updateUI();
 
@@ -45,18 +62,31 @@ public class AuthActivity extends AppCompatActivity {
                 return;
             }
 
-            if (!isLoginMode) {
+            if (isLoginMode) {
+                // Login Logic
+                if (authManager.login(email, password)) {
+                    Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AuthActivity.this, MainActivity.class));
+                    finish();
+                } else {
+                    Toast.makeText(this, "Email hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                // Register Logic
                 String repeatPassword = etRepeatPassword.getText().toString();
                 if (!password.equals(repeatPassword)) {
                     Toast.makeText(this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
                     return;
                 }
-            }
 
-            // Fake Success
-            authManager.setLogin(true, email);
-            startActivity(new Intent(AuthActivity.this, MainActivity.class));
-            finish();
+                if (authManager.register(email, password)) {
+                    Toast.makeText(this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AuthActivity.this, MainActivity.class));
+                    finish();
+                } else {
+                    Toast.makeText(this, "Email đã tồn tại", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
         tvSwitch.setOnClickListener(v -> {
@@ -67,13 +97,57 @@ public class AuthActivity extends AppCompatActivity {
 
     private void updateUI() {
         if (isLoginMode) {
-            etRepeatPassword.setVisibility(View.GONE);
-            btnAction.setText(getString(R.string.login));
-            tvSwitch.setText(getString(R.string.no_account));
+            tilRepeatPassword.setVisibility(View.GONE);
+            tvRepeatPasswordLabel.setVisibility(View.GONE);
+            cbRememberMe.setVisibility(View.VISIBLE);
+            tvForgotPassword.setVisibility(View.VISIBLE);
+            tvAuthTitle.setText("Đăng nhập");
+            btnAction.setText("Đăng nhập");
+            
+            String text = "Chưa có tài khoản? <font color='#075b5f'>Đăng ký ngay</font>";
+            tvSwitch.setText(android.text.Html.fromHtml(text, android.text.Html.FROM_HTML_MODE_LEGACY));
         } else {
-            etRepeatPassword.setVisibility(View.VISIBLE);
-            btnAction.setText(getString(R.string.register));
-            tvSwitch.setText(getString(R.string.have_account));
+            tilRepeatPassword.setVisibility(View.VISIBLE);
+            tvRepeatPasswordLabel.setVisibility(View.VISIBLE);
+            cbRememberMe.setVisibility(View.GONE);
+            tvForgotPassword.setVisibility(View.GONE);
+            tvAuthTitle.setText("Đăng ký");
+            btnAction.setText("Đăng ký");
+            
+            String text = "Đã có tài khoản? <font color='#075b5f'>Đăng nhập ngay</font>";
+            tvSwitch.setText(android.text.Html.fromHtml(text, android.text.Html.FROM_HTML_MODE_LEGACY));
         }
+    }
+
+    private void startSlideshow() {
+         Runnable slideshowRunnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String imagePath = "hotels/" + hotelImages[currentImageIndex];
+                    java.io.InputStream ims = getAssets().open(imagePath);
+                    android.graphics.drawable.Drawable d = android.graphics.drawable.Drawable.createFromStream(ims, null);
+                    
+                    // Crossfade animation
+                    ivAuthSlideshow.setAlpha(0f);
+                    ivAuthSlideshow.setImageDrawable(d);
+                    ivAuthSlideshow.animate().alpha(1f).setDuration(1000).start();
+                    
+                    ims.close();
+                } catch (java.io.IOException e) {
+                    e.printStackTrace();
+                }
+
+                currentImageIndex = (currentImageIndex + 1) % hotelImages.length;
+                handler.postDelayed(this, 5000); // 5 seconds
+            }
+        };
+        handler.post(slideshowRunnable);
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
     }
 }

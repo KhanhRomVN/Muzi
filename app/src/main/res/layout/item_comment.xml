@@ -16,7 +16,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="8dp"
             app:cardElevation="0dp">
             <ImageView
                 android:id="@+id/ivCommentAvatar"
@@ -49,14 +49,17 @@
                 android:textColor="#757575" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvCommentRating"
+        <LinearLayout
+            android:id="@+id/tvCommentRatingLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="★ 5.0"
-            android:textColor="@color/primary"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+            <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star" />
+            <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star" android:layout_marginStart="2dp" />
+            <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star" android:layout_marginStart="2dp" />
+            <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star" android:layout_marginStart="2dp" />
+            <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star" android:layout_marginStart="2dp" />
+        </LinearLayout>
     </LinearLayout>
 
     <TextView

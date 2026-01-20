@@ -10,7 +10,7 @@ echo -e "${GREEN}🚀 Starting Auto-Deploy Process...${NC}"
 # Path to the APK
 APK_PATH="app/build/outputs/apk/debug/app-debug.apk"
 PACKAGE_NAME="com.example.muzi"
-MAIN_ACTIVITY=".MainActivity"
+MAIN_ACTIVITY=".ui.splash.SplashActivity"
 
 # 1. Build the APK
 echo -e "\n${GREEN}📦 Building APK...${NC}"

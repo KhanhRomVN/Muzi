@@ -44,8 +44,10 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         Room room = roomList.get(position);
         holder.tvType.setText(room.getType());
         holder.tvNumber.setText("Phòng " + room.getRoomNumber());
-        String formattedPrice = String.format("%,.0f", room.getPrice()).replace(',', '.') + " VNĐ";
+        String formattedPrice = String.format("%,.0f", room.getPrice()).replace(',', '.') + " VNĐ / đêm";
         holder.tvPrice.setText(formattedPrice);
+        holder.tvRating.setText("4.9 (124)");
+        holder.tvBedding.setText(room.getBeddingInfo());
         
         // Load Image
         if (room.getImagePath() != null) {
@@ -59,15 +61,17 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         }
 
         if (position == selectedPosition) {
-            holder.cardRoom.setCardBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.primary));
-            holder.tvType.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.white));
-            holder.tvNumber.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.white));
-            holder.tvPrice.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.white));
+            holder.cardRoom.setCardBackgroundColor(0xFFE0F2F1); // Light primary
+            holder.tvType.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.primary));
+            // Keep other text colors as default or set specifically if needed
+            holder.tvNumber.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.black)); // Assuming default black
+            holder.tvPrice.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.primary)); // Assuming primary for price
         } else {
-            holder.cardRoom.setCardBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.white));
+            holder.cardRoom.setCardBackgroundColor(android.graphics.Color.TRANSPARENT);
             holder.tvType.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.black));
-            holder.tvNumber.setTextColor(0xFF757575);
-            holder.tvPrice.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.primary));
+            // Keep other text colors as default or set specifically if needed
+            holder.tvNumber.setTextColor(0xFF757575); // Assuming default grey
+            holder.tvPrice.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.primary)); // Assuming primary for price
         }
 
         holder.itemView.setOnClickListener(v -> {
@@ -88,7 +92,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
 
     static class RoomViewHolder extends RecyclerView.ViewHolder {
         CardView cardRoom;
-        TextView tvType, tvNumber, tvPrice;
+        TextView tvType, tvNumber, tvPrice, tvRating, tvBedding;
         ImageView ivRoomImage;
 
         public RoomViewHolder(@NonNull View itemView) {
@@ -97,6 +101,8 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
             tvType = itemView.findViewById(R.id.tvRoomType);
             tvNumber = itemView.findViewById(R.id.tvRoomNumber);
             tvPrice = itemView.findViewById(R.id.tvRoomPrice);
+            tvRating = itemView.findViewById(R.id.tvRoomRating);
+            tvBedding = itemView.findViewById(R.id.tvRoomBedding);
             ivRoomImage = itemView.findViewById(R.id.ivRoomImage);
         }
     }

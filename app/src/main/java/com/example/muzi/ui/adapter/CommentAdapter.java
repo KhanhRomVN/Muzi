@@ -34,8 +34,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         Comment comment = commentList.get(position);
         holder.tvUser.setText(comment.getUserName());
         holder.tvDate.setText(comment.getDate());
-        holder.tvRating.setText("★ " + comment.getRating());
         holder.tvText.setText(comment.getCommentText());
+        
+        // Handle rating stars visibility
+        int rating = (int) comment.getRating();
+        for (int i = 0; i < holder.ratingLayout.getChildCount(); i++) {
+            holder.ratingLayout.getChildAt(i).setVisibility(i < rating ? View.VISIBLE : View.GONE);
+        }
 
         // Use default avatar if no imagePath provided for mock
         if (comment.getUserAvatar() != null && !comment.getUserAvatar().isEmpty()) {
@@ -56,14 +61,15 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
     static class CommentViewHolder extends RecyclerView.ViewHolder {
         ImageView ivAvatar;
-        TextView tvUser, tvDate, tvRating, tvText;
+        TextView tvUser, tvDate, tvText;
+        ViewGroup ratingLayout;
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
             ivAvatar = itemView.findViewById(R.id.ivCommentAvatar);
             tvUser = itemView.findViewById(R.id.tvCommentUser);
             tvDate = itemView.findViewById(R.id.tvCommentDate);
-            tvRating = itemView.findViewById(R.id.tvCommentRating);
+            ratingLayout = itemView.findViewById(R.id.tvCommentRatingLayout);
             tvText = itemView.findViewById(R.id.tvCommentText);
         }
     }
