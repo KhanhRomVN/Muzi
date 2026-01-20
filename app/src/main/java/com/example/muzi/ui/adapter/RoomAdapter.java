@@ -4,6 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ImageView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.InputStream;
+import java.io.IOException;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
@@ -41,6 +46,17 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         holder.tvNumber.setText("Phòng " + room.getRoomNumber());
         String formattedPrice = String.format("%,.0f", room.getPrice()).replace(',', '.') + " VNĐ";
         holder.tvPrice.setText(formattedPrice);
+        
+        // Load Image
+        if (room.getImagePath() != null) {
+            try {
+                InputStream is = holder.itemView.getContext().getAssets().open(room.getImagePath());
+                Bitmap bitmap = BitmapFactory.decodeStream(is);
+                holder.ivRoomImage.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         if (position == selectedPosition) {
             holder.cardRoom.setCardBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.primary));
@@ -73,6 +89,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
     static class RoomViewHolder extends RecyclerView.ViewHolder {
         CardView cardRoom;
         TextView tvType, tvNumber, tvPrice;
+        ImageView ivRoomImage;
 
         public RoomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +97,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
             tvType = itemView.findViewById(R.id.tvRoomType);
             tvNumber = itemView.findViewById(R.id.tvRoomNumber);
             tvPrice = itemView.findViewById(R.id.tvRoomPrice);
+            ivRoomImage = itemView.findViewById(R.id.ivRoomImage);
         }
     }
 }

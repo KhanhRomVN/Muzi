@@ -12,6 +12,11 @@ import com.example.muzi.data.model.Hotel;
 import com.example.muzi.ui.adapter.CityAdapter;
 import com.example.muzi.ui.adapter.HotelAdapter;
 import com.example.muzi.ui.adapter.HotelSuggestionAdapter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.ImageView;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +25,17 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        
+        // Load Avatar
+        ImageView imgAvatar = view.findViewById(R.id.imgAvatar);
+        try {
+            InputStream is = getContext().getAssets().open("user_avatar.png");
+            Bitmap bitmap = BitmapFactory.decodeStream(is);
+            imgAvatar.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         // 1. Setup Nearby Hotels (Horizontal)
         RecyclerView rvNearby = view.findViewById(R.id.rvNearbyHotels);
         rvNearby.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));

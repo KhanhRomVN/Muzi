@@ -9,6 +9,8 @@ import com.example.muzi.ui.fragments.ManagementFragment;
 import com.example.muzi.ui.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import android.content.Intent;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,19 +21,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setItemActiveIndicatorEnabled(false);
         
-        // Handle tab selection from Intent
-        int tabToSelect = getIntent().getIntExtra("select_tab", R.id.nav_home);
-        bottomNav.setSelectedItemId(tabToSelect);
-        
-        if (tabToSelect == R.id.nav_home) {
-            loadFragment(new HomeFragment());
-        } else if (tabToSelect == R.id.nav_management) {
-            loadFragment(new ManagementFragment());
-        } else if (tabToSelect == R.id.nav_booking) {
-            loadFragment(new BookingFragment());
-        } else if (tabToSelect == R.id.nav_settings) {
-            loadFragment(new SettingsFragment());
-        }
+        handleIntent(getIntent());
 
         bottomNav.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -53,6 +43,34 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        int tabToSelect = intent.getIntExtra("select_tab", R.id.nav_home);
+        bottomNav.setSelectedItemId(tabToSelect);
+        
+        Fragment fragment = null;
+        if (tabToSelect == R.id.nav_home) {
+            fragment = new HomeFragment();
+        } else if (tabToSelect == R.id.nav_management) {
+            fragment = new ManagementFragment();
+        } else if (tabToSelect == R.id.nav_booking) {
+            fragment = new BookingFragment();
+        } else if (tabToSelect == R.id.nav_settings) {
+            fragment = new SettingsFragment();
+        }
+        
+        if (fragment != null) {
+            loadFragment(fragment);
+        }
     }
 
     private void loadFragment(Fragment fragment) {

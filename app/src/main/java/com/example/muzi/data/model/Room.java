@@ -6,16 +6,18 @@ public class Room {
     private String roomNumber;
     private String type; // "SINGLE", "DOUBLE", "SUITE"
     private double price;
+    private String imagePath;
     private boolean isSelected;
 
     public Room() {}
 
-    public Room(String id, String hotelId, String roomNumber, String type, double price) {
+    public Room(String id, String hotelId, String roomNumber, String type, double price, String imagePath) {
         this.id = id;
         this.hotelId = hotelId;
         this.roomNumber = roomNumber;
         this.type = type;
         this.price = price;
+        this.imagePath = imagePath;
         this.isSelected = false;
     }
 
@@ -29,6 +31,8 @@ public class Room {
     public void setType(String type) { this.type = type; }
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
+    public String getImagePath() { return imagePath; }
+    public void setImagePath(String imagePath) { this.imagePath = imagePath; }
     public boolean isSelected() { return isSelected; }
     public void setSelected(boolean selected) { isSelected = selected; }
 }
